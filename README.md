@@ -1,6 +1,6 @@
 # Nike Email Dark Mode Test
 
-A test project exploring dark mode implementation for HTML emails, specifically focusing on swapping logo colors (black ↔ white Nike swoosh) based on email client dark mode settings.
+A test project exploring dark mode implementation for HTML emails, specifically focusing on swapping logo colors (black ↔ white Nike Swoosh) based on email client dark mode settings.
 
 ## Live Demo
 
@@ -12,8 +12,8 @@ https://sdasse.github.io/nike-email-test/test.html
 
 The production solution uses two PNG images with CSS media queries and inline styles:
 
-- **Black swoosh** (swoosh-black.png) - Shows by default
-- **White swoosh** (swoosh-white.png) - Swaps in for dark mode
+- **Black Swoosh** (swoosh-black.png) - Shows by default
+- **White Swoosh** (swoosh-white.png) - Swaps in for dark mode
 - CSS `@media (prefers-color-scheme: dark)` for modern clients
 - `div[data-ogsc]` selector for Outlook.com/Android
 - Inline styles: `transition: none !important; background-color: transparent !important;` to prevent hover effects
@@ -26,8 +26,9 @@ The production solution uses two PNG images with CSS media queries and inline st
 | **iOS Mail** | ✅ Full | Dark mode switching works perfectly |
 | **Outlook Mac** | ✅ Full | Dark mode switching works perfectly |
 | **Outlook.com** (Web) | ✅ Full | Works with `div[data-ogsc]` selector + wrapper div with color style |
-| **Gmail** (All platforms) | ⚠️ Partial | Shows black swoosh only (no dark mode switching) |
-| **Outlook Windows** | ⚠️ Partial | Shows black swoosh only (no modern CSS support) |
+| **Gmail Desktop** (Web) | ✅ Full | Dark mode switching works perfectly |
+| **Gmail Mobile** (iOS/Android) | ⚠️ Partial | Shows black Swoosh only (no dark mode switching) |
+| **Outlook Windows** | ⚠️ Partial | Shows black Swoosh only (no modern CSS support) |
 | **Forwarded emails** | ⚠️ Limited | Gmail strips some inline styles during forwarding, may show hover effects |
 
 ## Key Learnings
@@ -68,7 +69,7 @@ The production solution uses two PNG images with CSS media queries and inline st
 - Rémi Parmentier's blend mode technique targets Gmail iOS specifically
 - Designed for text/background colors, not ideal for images
 - Would add complexity for marginal gains
-- Better to accept black swoosh fallback in Gmail
+- Better to accept black Swoosh fallback in Gmail mobile apps
 
 ## Code Structure
 
@@ -132,9 +133,9 @@ Targets elements after Outlook adds the `data-ogsc` attribute.
 ## Files
 
 - `test.html` - Production-ready dark mode email test
-- `swoosh-black.png` - Black Nike swoosh (600x215px)
-- `swoosh-white.png` - White Nike swoosh (600x215px)
+- `swoosh-black.png` - Black Nike Swoosh (600x215px)
+- `swoosh-white.png` - White Nike Swoosh (600x215px)
 
 ## License
 
-This is a test/learning project. Nike swoosh is a trademark of Nike, Inc.
+This is a test/learning project. Nike Swoosh is a trademark of Nike, Inc.

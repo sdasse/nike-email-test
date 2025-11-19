@@ -60,16 +60,11 @@ The production solution uses two PNG images with CSS media queries and inline st
 - Fixed with: `transition: none !important; background-color: transparent !important;`
 - However, Gmail strips these styles during forwarding (see #4)
 
-### 6. Linear Gradient Hack (Mostly Ineffective)
-- Annett Forcier's technique: `background-image: linear-gradient(#000, #000)` prevents color inversion
-- Outlook.com stripped this from wrapper divs
-- May work in other contexts, but not effective for this use case
-
-### 7. CSS Blend Modes (Not Pursued)
-- Rémi Parmentier's blend mode technique targets Gmail iOS specifically
-- Designed for text/background colors, not ideal for images
-- Would add complexity for marginal gains
-- Better to accept black Swoosh fallback in Gmail mobile apps
+### 6. Alternative Approaches Not Effective for Image Swapping
+- **Linear gradient techniques** work better for preventing background color inversion than image inversion
+- **CSS blend modes** are designed for text and solid colors, not ideal for image assets
+- These techniques add significant complexity for marginal gains
+- Simple PNG image swap with proper fallbacks is the most reliable approach
 
 ## Code Structure
 

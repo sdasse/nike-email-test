@@ -25,14 +25,24 @@
             background-color: #ffffff;
         }
 
-        /* Image swap: hide dark mode image by default */
+        /* Hide both logos by default - only show in supported clients */
+        .light-logo,
         .dark-logo {
             display: none !important;
             max-height: 0 !important;
             overflow: hidden !important;
         }
 
-        /* Dark mode: Apple Mail, iOS Mail, Outlook Mac */
+        /* Light mode: Show black logo only in clients that support color-scheme */
+        @media (prefers-color-scheme: light) {
+            .light-logo {
+                display: block !important;
+                max-height: none !important;
+                overflow: visible !important;
+            }
+        }
+
+        /* Dark mode: Show white logo and invert colors */
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #000000 !important;
@@ -54,27 +64,6 @@
                 color: #ffffff !important;
             }
         }
-
-        /* Dark mode: Outlook.com, Outlook Android */
-        [data-ogsc] body {
-            background-color: #000000 !important;
-        }
-        [data-ogsc] .email-container {
-            background-color: #000000 !important;
-        }
-        [data-ogsc] .light-logo {
-            display: none !important;
-            max-height: 0 !important;
-            overflow: hidden !important;
-        }
-        [data-ogsc] .dark-logo {
-            display: block !important;
-            max-height: none !important;
-            overflow: visible !important;
-        }
-        [data-ogsc] .body-text {
-            color: #ffffff !important;
-        }
     </style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #ffffff;">
@@ -90,15 +79,15 @@
                     <tr>
                         <td align="center" style="padding: 60px 20px 40px 20px;">
 
-                            <!-- Light mode logo (black swoosh) - shows by default -->
+                            <!-- Light mode logo (black swoosh) - hidden by default, only shows in supported clients -->
                             <img src="https://sdasse.github.io/nike-email-test/swoosh-black.png"
                                  alt="Nike"
                                  width="160"
                                  height="57"
                                  class="light-logo"
-                                 style="display: block; width: 160px; height: 57px; margin: 0 auto;">
+                                 style="display: none; max-height: 0; overflow: hidden; width: 160px; height: 57px; margin: 0 auto;">
 
-                            <!-- Dark mode logo (white swoosh) - hidden by default, shows in dark mode -->
+                            <!-- Dark mode logo (white swoosh) - hidden by default, only shows in dark mode -->
                             <div class="dark-logo" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
                                 <img src="https://sdasse.github.io/nike-email-test/swoosh-white.png"
                                      alt="Nike"

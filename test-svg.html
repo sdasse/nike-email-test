@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Enable Dark Mode support -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+
+    <title>Nike Dark Mode Test - SVG + Blend Modes</title>
+
+    <style type="text/css">
+        /* Client-specific resets */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+
+        /* Base styles */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background-color: #ffffff;
+        }
+
+        /* Gmail targeting for blend modes - only applies in Gmail */
+        u + .body .gmail-blend-screen {
+            background: #000;
+            mix-blend-mode: screen;
+        }
+        u + .body .gmail-blend-difference {
+            background: #000;
+            mix-blend-mode: difference;
+        }
+
+        /* Dark mode: Apple Mail, iOS Mail, Outlook Mac */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #000000 !important;
+            }
+            .email-container {
+                background-color: #000000 !important;
+            }
+            .swoosh-logo {
+                fill: #ffffff !important;
+            }
+            .body-text {
+                color: #ffffff !important;
+            }
+        }
+
+        /* Dark mode: Outlook.com, Outlook Android */
+        div[data-ogsc] .swoosh-logo {
+            fill: #ffffff !important;
+        }
+        [data-ogsb] {
+            background-color: #000000 !important;
+        }
+        div[data-ogsc] .body-text {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body class="body" style="margin: 0; padding: 0; background-color: #ffffff;">
+
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #ffffff;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+
+                <!-- Email Container -->
+                <table role="presentation" class="email-container" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff;">
+
+                    <!-- Logo Section -->
+                    <tr>
+                        <td align="center" style="padding: 60px 20px 40px 20px;">
+
+                            <!-- Wrapper div with color style to trigger Outlook data-ogsc attribute -->
+                            <div style="color: #000000;">
+
+                                <!-- Gmail blend mode wrapper - only activates in Gmail -->
+                                <div class="gmail-blend-screen">
+                                    <div class="gmail-blend-difference">
+
+                                        <!--[if !mso]><!-->
+                                        <!-- Inline SVG with black fill (switches to white in dark mode) -->
+                                        <svg class="swoosh-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 46" width="160" height="57" fill="#000000" style="display: block; margin: 0 auto;">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M129 0L34.6604 40.0177C26.8059 43.3501 20.1984 45.0127 14.8737 45.0127C8.88251 45.0127 4.51812 42.8986 1.83786 38.6775C-1.63789 33.231 -0.118593 24.4736 5.84392 15.2288C9.38417 9.82525 13.8847 4.86605 18.2706 0.121832C17.2386 1.79879 8.13003 16.9559 18.0914 24.0937C20.0622 25.527 22.8643 26.2293 26.3114 26.2293C29.0777 26.2293 32.2524 25.7779 35.7425 24.8677L129 0Z"/>
+                                        </svg>
+                                        <!--<![endif]-->
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <!-- Content Section -->
+                    <tr>
+                        <td align="center" style="padding: 0 40px 60px 40px;">
+                            <h1 style="margin: 0 0 20px 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 32px; line-height: 40px; color: #000000; font-weight: bold;">Dark Mode Test - SVG</h1>
+                            <p class="body-text" style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #000000;">
+                                This test uses inline SVG with CSS blend modes for Gmail and @media queries for other clients. The swoosh should adapt to dark mode where supported.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

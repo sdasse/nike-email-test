@@ -50,19 +50,17 @@
         }
 
         /* Dark mode: Outlook.com, Outlook Android */
-        [data-ogsc] .light-img {
+        /* Target elements that Outlook adds data-ogsc to after color conversion */
+        div[data-ogsc] .light-img {
             display: none !important;
         }
-        [data-ogsc] .dark-img {
+        div[data-ogsc] .dark-img {
             display: block !important;
         }
-        [data-ogsc] body {
+        [data-ogsb] {
             background-color: #000000 !important;
         }
-        [data-ogsc] .email-container {
-            background-color: #000000 !important;
-        }
-        [data-ogsc] .body-text {
+        div[data-ogsc] .body-text {
             color: #ffffff !important;
         }
     </style>
@@ -80,25 +78,30 @@
                     <tr>
                         <td align="center" style="padding: 60px 20px 40px 20px;">
 
-                            <!-- Light mode logo (black swoosh) - shows by default -->
-                            <img class="light-img"
-                                 src="https://sdasse.github.io/nike-email-test/swoosh-black.png"
-                                 alt="Nike"
-                                 width="160"
-                                 height="57"
-                                 style="display: block; width: 160px; height: 57px; margin: 0 auto;"
-                                 border="0">
+                            <!-- Wrapper div with color style to trigger Outlook data-ogsc attribute -->
+                            <div style="color: #000000;">
 
-                            <!-- Dark mode logo (white swoosh) - hidden by default, shows in dark mode -->
-                            <!--[if !mso]><!-->
-                            <img class="dark-img"
-                                 src="https://sdasse.github.io/nike-email-test/swoosh-white.png"
-                                 alt="Nike"
-                                 width="160"
-                                 height="57"
-                                 style="display: none; width: 160px; height: 57px; margin: 0 auto;"
-                                 border="0">
-                            <!--<![endif]-->
+                                <!-- Light mode logo (black swoosh) - shows by default -->
+                                <img class="light-img"
+                                     src="https://sdasse.github.io/nike-email-test/swoosh-black.png"
+                                     alt="Nike"
+                                     width="160"
+                                     height="57"
+                                     style="display: block; width: 160px; height: 57px; margin: 0 auto;"
+                                     border="0">
+
+                                <!-- Dark mode logo (white swoosh) - hidden by default, shows in dark mode -->
+                                <!--[if !mso]><!-->
+                                <img class="dark-img"
+                                     src="https://sdasse.github.io/nike-email-test/swoosh-white.png"
+                                     alt="Nike"
+                                     width="160"
+                                     height="57"
+                                     style="display: none; width: 160px; height: 57px; margin: 0 auto;"
+                                     border="0">
+                                <!--<![endif]-->
+
+                            </div>
 
                         </td>
                     </tr>

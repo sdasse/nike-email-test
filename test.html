@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Enable Dark Mode support -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+
+    <title>Nike Dark Mode Test</title>
+
+    <style type="text/css">
+        /* Client-specific resets */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+
+        /* Base styles */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background-color: #ffffff;
+        }
+
+        /* Dark mode: Apple Mail, iOS Mail, Outlook Mac */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #000000 !important;
+            }
+            .email-container {
+                background-color: #000000 !important;
+            }
+            .swoosh-logo {
+                fill: #ffffff !important;
+            }
+            .body-text {
+                color: #ffffff !important;
+            }
+        }
+
+        /* Dark mode: Outlook.com, Outlook Android */
+        [data-ogsc] body {
+            background-color: #000000 !important;
+        }
+        [data-ogsc] .email-container {
+            background-color: #000000 !important;
+        }
+        [data-ogsc] .swoosh-logo {
+            fill: #ffffff !important;
+        }
+        [data-ogsc] .body-text {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #ffffff;">
+
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #ffffff;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+
+                <!-- Email Container -->
+                <table role="presentation" class="email-container" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff;">
+
+                    <!-- Logo Section -->
+                    <tr>
+                        <td align="center" style="padding: 60px 20px 40px 20px;">
+                            <!--[if !mso]><!-->
+                            <svg class="swoosh-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80" height="80" fill="#000000" style="display: block;">
+                                <path d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z"/>
+                            </svg>
+                            <!--<![endif]-->
+                        </td>
+                    </tr>
+
+                    <!-- Content Section -->
+                    <tr>
+                        <td align="center" style="padding: 0 40px 60px 40px;">
+                            <h1 style="margin: 0 0 20px 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 32px; line-height: 40px; color: #000000; font-weight: bold;">Dark Mode Test</h1>
+                            <p class="body-text" style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; color: #000000;">
+                                The Nike swoosh above should appear black in light mode and white in dark mode for supported email clients.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -25,24 +25,12 @@
             background-color: #ffffff;
         }
 
-        /* Hide both logos by default - only show in supported clients */
-        .light-logo,
-        .dark-logo {
+        /* Dark mode image swap - hide dark image by default */
+        .dark-img {
             display: none !important;
-            max-height: 0 !important;
-            overflow: hidden !important;
         }
 
-        /* Light mode: Show black logo only in clients that support color-scheme */
-        @media (prefers-color-scheme: light) {
-            .light-logo {
-                display: block !important;
-                max-height: none !important;
-                overflow: visible !important;
-            }
-        }
-
-        /* Dark mode: Show white logo and invert colors */
+        /* Dark mode: Apple Mail, iOS Mail, Outlook Mac */
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #000000 !important;
@@ -50,19 +38,32 @@
             .email-container {
                 background-color: #000000 !important;
             }
-            .light-logo {
+            .light-img {
                 display: none !important;
-                max-height: 0 !important;
-                overflow: hidden !important;
             }
-            .dark-logo {
+            .dark-img {
                 display: block !important;
-                max-height: none !important;
-                overflow: visible !important;
             }
             .body-text {
                 color: #ffffff !important;
             }
+        }
+
+        /* Dark mode: Outlook.com, Outlook Android */
+        [data-ogsc] .light-img {
+            display: none !important;
+        }
+        [data-ogsc] .dark-img {
+            display: block !important;
+        }
+        [data-ogsc] body {
+            background-color: #000000 !important;
+        }
+        [data-ogsc] .email-container {
+            background-color: #000000 !important;
+        }
+        [data-ogsc] .body-text {
+            color: #ffffff !important;
         }
     </style>
 </head>
@@ -79,22 +80,25 @@
                     <tr>
                         <td align="center" style="padding: 60px 20px 40px 20px;">
 
-                            <!-- Light mode logo (black swoosh) - hidden by default, only shows in supported clients -->
-                            <img src="https://sdasse.github.io/nike-email-test/swoosh-black.png"
+                            <!-- Light mode logo (black swoosh) - shows by default -->
+                            <img class="light-img"
+                                 src="https://sdasse.github.io/nike-email-test/swoosh-black.png"
                                  alt="Nike"
                                  width="160"
                                  height="57"
-                                 class="light-logo"
-                                 style="display: none; max-height: 0; overflow: hidden; width: 160px; height: 57px; margin: 0 auto;">
+                                 style="display: block; width: 160px; height: 57px; margin: 0 auto;"
+                                 border="0">
 
-                            <!-- Dark mode logo (white swoosh) - hidden by default, only shows in dark mode -->
-                            <div class="dark-logo" style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
-                                <img src="https://sdasse.github.io/nike-email-test/swoosh-white.png"
-                                     alt="Nike"
-                                     width="160"
-                                     height="57"
-                                     style="display: block; width: 160px; height: 57px; margin: 0 auto;">
-                            </div>
+                            <!-- Dark mode logo (white swoosh) - hidden by default, shows in dark mode -->
+                            <!--[if !mso]><!-->
+                            <img class="dark-img"
+                                 src="https://sdasse.github.io/nike-email-test/swoosh-white.png"
+                                 alt="Nike"
+                                 width="160"
+                                 height="57"
+                                 style="display: none; width: 160px; height: 57px; margin: 0 auto;"
+                                 border="0">
+                            <!--<![endif]-->
 
                         </td>
                     </tr>
